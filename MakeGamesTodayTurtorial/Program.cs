@@ -22,7 +22,7 @@ namespace MakeGamesTodayTurtorial
             if (string.IsNullOrWhiteSpace(place))
             {
                 Console.WriteLine("You are not too talkative, are you?");
-                place = "Nowwhere";
+                place = "Nowwhere"; 
             }
             Console.WriteLine($"Welcom to Maoi, {name} from {place}!");
             Console.WriteLine("Press any key to continue . . .");
