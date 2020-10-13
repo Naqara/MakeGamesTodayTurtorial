@@ -17,7 +17,7 @@ namespace MakeGamesTodayTurtorial
             {
                 Console.WriteLine("Ha! I knew it!");
             }
-            Console.WriteLine($"Where are you from, {name}?");
+            Console.WriteLine($"Where are you from, {name}??");
             string place = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(place))
             {
@@ -70,7 +70,11 @@ namespace MakeGamesTodayTurtorial
                 nextMapRowPosition++;
                 Console.ReadKey(true);
             }
-
+            Console.Clear();
+            foreach (string row in level)
+            {
+                Console.WriteLine(row);
+            }
 
 
 
