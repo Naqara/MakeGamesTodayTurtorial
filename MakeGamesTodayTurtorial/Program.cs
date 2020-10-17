@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace MakeGamesTodayTurtorial
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("Who are you, Stranger?");
@@ -79,14 +81,12 @@ namespace MakeGamesTodayTurtorial
             int playerRow = 3;
             while (true)
             {
-                Console.SetCursorPosition(playerColumn, playerRow);
-                Console.Write("@");
+                WriteAt(playerColumn, playerRow, "@");
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-                Console.SetCursorPosition(playerColumn, playerRow);
                 char currentCell = level[playerRow][playerColumn]; //komurka na którek stoi gracz.
-                Console.Write(currentCell);
+                WriteAt(playerColumn, playerRow, currentCell);
 
                 int targtColumn = playerColumn;
                 int targetRow = playerRow;
@@ -124,6 +124,17 @@ namespace MakeGamesTodayTurtorial
             Console.SetCursorPosition(0, level.Length);
 
             Console.ReadKey(true);
+        }
+
+        static void WriteAt(int columnNumber, int rowNumber, string text)
+        {
+            Console.SetCursorPosition(columnNumber, rowNumber);
+            Console.Write(text);
+        }
+        static void WriteAt(int columnNumber, int rowNumber, char sign)
+        {
+            Console.SetCursorPosition(columnNumber, rowNumber);
+            Console.Write(sign);
         }
     }
 }
