@@ -90,22 +90,36 @@ namespace MakeGamesTodayTurtorial
                 char currentCell = currentRow[playerColumn]; //komurka na którek stoi gracz.
                 Console.Write(currentCell);
 
+                int targtColumn = playerColumn;
+                int targetRow = playerRow;
+
                 if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
-                    playerColumn--;
+                   targtColumn = playerColumn-1;
                 }
                 else if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
-                    playerColumn++;
+                    targtColumn = playerColumn+1;
                 }
                 else if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    playerRow--;
+                    targetRow = playerRow-1;
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    playerRow++;
+                    targetRow = playerRow+1;
                 }
+
+                if (targtColumn >=0 && targtColumn < level[playerRow].Length)
+                {
+playerColumn = targtColumn;
+                }
+                if (targetRow >= 0 && targetRow < level.Length)
+                {
+playerRow = targetRow;
+                }
+                
+                
             }
             Console.SetCursorPosition(0, level.Length);
 
