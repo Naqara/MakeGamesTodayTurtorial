@@ -95,31 +95,33 @@ namespace MakeGamesTodayTurtorial
 
                 if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
-                   targtColumn = playerColumn-1;
+                    targtColumn = playerColumn - 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
-                    targtColumn = playerColumn+1;
+                    targtColumn = playerColumn + 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    targetRow = playerRow-1;
+                    targetRow = playerRow - 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    targetRow = playerRow+1;
+                    targetRow = playerRow + 1;
+                }
+                else
+                {
+                    break;
                 }
 
-                if (targtColumn >=0 && targtColumn < level[playerRow].Length)
+                if (targtColumn >= 0 && targtColumn < level[playerRow].Length)
                 {
-playerColumn = targtColumn;
+                    playerColumn = targtColumn;
                 }
                 if (targetRow >= 0 && targetRow < level.Length)
                 {
-playerRow = targetRow;
+                    playerRow = targetRow;
                 }
-                
-                
             }
             Console.SetCursorPosition(0, level.Length);
 
