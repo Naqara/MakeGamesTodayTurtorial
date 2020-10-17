@@ -85,9 +85,7 @@ namespace MakeGamesTodayTurtorial
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
                 Console.SetCursorPosition(playerColumn, playerRow);
-
-                string currentRow = level[playerRow]; //aktualny numer w którym stoi gracz
-                char currentCell = currentRow[playerColumn]; //komurka na którek stoi gracz.
+                char currentCell = level[playerRow][playerColumn]; //komurka na którek stoi gracz.
                 Console.Write(currentCell);
 
                 int targtColumn = playerColumn;
@@ -114,11 +112,11 @@ namespace MakeGamesTodayTurtorial
                     break;
                 }
 
-                if (targtColumn >= 0 && targtColumn < level[playerRow].Length)
+                if (targtColumn >= 0 && targtColumn < level[playerRow].Length && level[playerRow][targtColumn] != '#')
                 {
                     playerColumn = targtColumn;
                 }
-                if (targetRow >= 0 && targetRow < level.Length)
+                if (targetRow >= 0 && targetRow < level.Length && level[targetRow][playerColumn] != '#')
                 {
                     playerRow = targetRow;
                 }
