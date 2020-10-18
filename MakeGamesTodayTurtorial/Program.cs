@@ -81,12 +81,12 @@ namespace MakeGamesTodayTurtorial
             int playerRow = 3;
             while (true)
             {
-                WriteAt(playerColumn, playerRow, "@");
+                Display.WriteAt(playerColumn, playerRow, "@");
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
                 char currentCell = level[playerRow][playerColumn]; //komurka na którek stoi gracz.
-                WriteAt(playerColumn, playerRow, currentCell);
+               Display.WriteAt(playerColumn, playerRow, currentCell);
 
                 int targtColumn = playerColumn;
                 int targetRow = playerRow;
@@ -126,15 +126,6 @@ namespace MakeGamesTodayTurtorial
             Console.ReadKey(true);
         }
 
-        static void WriteAt(int columnNumber, int rowNumber, string text)
-        {
-            Console.SetCursorPosition(columnNumber, rowNumber);
-            Console.Write(text);
-        }
-        static void WriteAt(int columnNumber, int rowNumber, char sign)
-        {
-            Console.SetCursorPosition(columnNumber, rowNumber);
-            Console.Write(sign);
-        }
+
     }
 }
