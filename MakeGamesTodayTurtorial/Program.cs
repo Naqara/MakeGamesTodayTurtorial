@@ -77,48 +77,48 @@ namespace MakeGamesTodayTurtorial
             {
                 Console.WriteLine(row);
             }
-            int playerColumn = 2;
-            int playerRow = 3;
+            Player player = new Player();
+
             while (true)
             {
-                Display.WriteAt(playerColumn, playerRow, "@");
+                Display.WriteAt(player.playerColumn, player.playerRow, player.avatar);
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-                char currentCell = level[playerRow][playerColumn]; //komurka na którek stoi gracz.
-               Display.WriteAt(playerColumn, playerRow, currentCell);
+                char currentCell = level[player.playerRow][player.playerColumn]; //komurka na którek stoi gracz.
+               Display.WriteAt(player.playerColumn, player.playerRow, currentCell);
 
-                int targtColumn = playerColumn;
-                int targetRow = playerRow;
+                int targtColumn = player.playerColumn;
+                int targetRow = player.playerRow;
 
                 if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
-                    targtColumn = playerColumn - 1;
+                    targtColumn = player.playerColumn - 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
-                    targtColumn = playerColumn + 1;
+                    targtColumn = player.playerColumn + 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    targetRow = playerRow - 1;
+                    targetRow = player.playerRow - 1;
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    targetRow = playerRow + 1;
+                    targetRow = player.playerRow + 1;
                 }
                 else
                 {
                     break;
                 }
 
-                if (targtColumn >= 0 && targtColumn < level[playerRow].Length && level[playerRow][targtColumn] != '#')
+                if (targtColumn >= 0 && targtColumn < level[player.playerRow].Length && level[player.playerRow][targtColumn] != '#')
                 {
-                    playerColumn = targtColumn;
+                    player.playerColumn = targtColumn;
                 }
-                if (targetRow >= 0 && targetRow < level.Length && level[targetRow][playerColumn] != '#')
+                if (targetRow >= 0 && targetRow < level.Length && level[targetRow][player.playerColumn] != '#')
                 {
-                    playerRow = targetRow;
+                    player.playerRow = targetRow;
                 }
             }
             Console.SetCursorPosition(0, level.Length);
